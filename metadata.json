@@ -1,0 +1,6 @@
+{
+  "name": "Micro8051SiM",
+  "description": "8051 Microcontroller Simulation & Learning Environment - Cycle-accurate 8051 CPU simulator, assembler, debugger, and virtual electronics laboratory.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
