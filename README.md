@@ -29,3 +29,33 @@ The simulator is designed as a learning-focused virtual 8051 workbench, with too
 ---
 
 © 2026 Vineet Sharma
+
+## 🪟 Windows Desktop App
+
+Micro8051SiM can also be packaged as a Windows desktop application using Electron.
+
+### Install desktop dependencies
+
+```bash
+npm install --legacy-peer-deps
+```
+
+### Run the Windows app in development
+
+```bash
+npm run electron:dev
+```
+
+### Build the Windows installer
+
+```bash
+npm run dist
+```
+
+The Windows installer will be generated in:
+
+```text
+release/
+```
+
+The web version and Windows desktop version use the same source code.

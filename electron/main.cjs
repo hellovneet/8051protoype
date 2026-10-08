@@ -7,6 +7,7 @@ function createWindow() {
     height: 900,
     minWidth: 1000,
     minHeight: 650,
+    show: false,
     title: "Micro8051SiM",
     webPreferences: {
       preload: path.join(__dirname, "preload.cjs"),
@@ -15,8 +16,10 @@ function createWindow() {
     }
   });
 
+  win.once("ready-to-show", () => win.show());
+
   if (!app.isPackaged) {
-    win.loadURL("http://localhost:5173");
+    win.loadURL("http://localhost:3000");
   } else {
     win.loadFile(path.join(__dirname, "../dist/index.html"));
   }
