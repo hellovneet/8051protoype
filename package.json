@@ -8,7 +8,10 @@
     "build": "vite build",
     "preview": "vite preview",
     "clean": "rm -rf dist server.js",
-    "lint": "tsc --noEmit"
+    "lint": "tsc --noEmit",
+    "electron": "electron .",
+    "electron:dev": "concurrently \"vite --port=3000 --host=0.0.0.0\" \"wait-on http://localhost:3000 && electron .\"",
+    "dist": "npm run build && electron-builder"
   },
   "dependencies": {
     "@google/genai": "^2.4.0",
@@ -31,6 +34,32 @@
     "tailwindcss": "^4.3.3",
     "tsx": "^4.21.0",
     "typescript": "^7.0.2",
-    "@types/express": "^4.17.21"
+    "@types/express": "^4.17.21",
+    "electron": "^38.2.0",
+    "electron-builder": "^26.0.12",
+    "concurrently": "^9.2.1",
+    "wait-on": "^8.0.3"
+  },
+  "main": "electron/main.cjs",
+  "build": {
+    "appId": "com.vineetsharma.micro8051sim",
+    "productName": "Micro8051SiM",
+    "directories": {
+      "output": "release"
+    },
+    "files": [
+      "dist/**/*",
+      "electron/**/*",
+      "package.json"
+    ],
+    "win": {
+      "target": [
+        "nsis"
+      ]
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true
+    }
   }
 }
